@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# =================================================================================
+# Script Name: 	grepIt
+# By:		noodl3s
+# Date:		March 31, 2013 (original start date)
+# Purpose: 	to search for characters, phrases, or words
+# Tested on:	Mac OSX
+# Instructions:	1. save this script in the folder you would like to search in
+#		2. in line 15, substitute "/your/directory/path/here"
+#		for the path you would like to search
+#		3. save
+#		4. double-click or open to start
+# =================================================================================
+clear # clear screen
+directoryPath=/your/directory/path/here # example: /Users/yourUsername/Sites/yourWebsiteFolder
+echo "Welcome to grepIt" # welcome message
+while [ "$phrase" != "q" ]; do # begin loop
+echo "Enter a phrase to search for OR type quit to end script:" # enter phrase or quit
+read phrase # read phrase
+  if [ "$phrase" != "q" ] # check to see if search or quit
+  then
+    clear
+    echo "grepit search results for $phrase:"; grep -rli $phrase $directoryPath | more # echo results
+  else
+    echo "goodbye!"; exit # exit
+  fi
+done # end while loop
