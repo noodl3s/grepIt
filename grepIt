@@ -2,26 +2,27 @@
 # =================================================================================
 # Script Name: 	grepIt
 # By:		noodl3s
-# Date:		March 31, 2013 (original start date)
+# Date:		April 3, 2013
 # Purpose: 	to search for characters, phrases, or words
-# Tested on:	Mac OSX
-# Instructions:	1. save this script in the folder you would like to search in
-#		2. in line 15, substitute "/your/directory/path/here"
-#		for the path you would like to search
-#		3. save
-#		4. double-click or open to start
+# Tested on:	Mac OSX 10.6.8
+# Instructions:	1. save this script in the folder you would like to search within
+#		2. in line 24, substitute '~/Sites/yourWebsiteFolder' for the path
+#		   you would like to search within
+#		3. save again
+#		4. type 'chmod 777 ~/Sites/yourWebsiteFolder/grepIt' in a terminal
+#		   to change permissions 
+#		5. file is ready to use
 # =================================================================================
-clear # clear screen
-directoryPath=/your/directory/path/here # example: /Users/yourUsername/Sites/yourWebsiteFolder
-echo "Welcome to grepIt" # welcome message
-while [ "$phrase" != "q" ]; do # begin loop
-echo "Enter a phrase to search for OR type quit to end script:" # enter phrase or quit
+clear
+echo "Welcome to grepIt"
+while [ "$phrase" != "q" ]; do
+echo "Enter a phrase to search for OR type quit to end script:"
 read phrase # read phrase
-  if [ "$phrase" != "q" ] # check to see if search or quit
+  if [ "$phrase" != "q" ]
   then
     clear
-    echo "grepit search results for $phrase:"; grep -rli $phrase $directoryPath | more # echo results
+    echo "grepit search results for $phrase:"; grep -rli $phrase ~/Sites/yourWebsiteFolder | more
   else
-    echo "goodbye!"; exit # exit
+    echo "goodbye!"; exit
   fi
-done # end while loop
+done
